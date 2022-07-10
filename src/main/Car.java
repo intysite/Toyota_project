@@ -44,54 +44,40 @@ public abstract class Car {
         this.isStart = start;
     }
 
-    public void startCar() {
-        boolean isProblem = false;
-        for (Wheel wheel : wheels) {
-            try {
-                if (!(wheel instanceof Wheel)) {
-                    isProblem = true;
-                    throw new StartCarException("Ошибка: колесо отсутствует");
+    public void startCar() throws StartCarException {
+        String problemMessage = "";
+        if (!checkWheels()) {
+           problemMessage += "Ошибка: колесо не в порядке;\n";
                 }
-            } catch (StartCarException e) {
-                System.out.println(e.getMessage());
+        if (gasTank.getCountGas() == 0) {
+            problemMessage += "Ошибка: нет топлива;\n";
             }
-            try {
-                if (!wheel.getWheelIsOk()) {
-                    isProblem = true;
-                    throw new StartCarException("Ошибка: колесо проколото");
-                }
-            } catch (StartCarException e) {
-                System.out.println(e.getMessage());
+        if (!electric.getElectricIsOk()) {
+            problemMessage += "Ошибка: электрика не исправна; \n";
             }
+        if (!engine.getEngineIsOk()) {
+            problemMessage += "Ошибка: двигатель не исправен;\n";
+            }
+        if (!problemMessage.equals("")) {
+            throw new StartCarException(problemMessage);
         }
-        try {
-            if (gasTank.getCountGas() == 0) {
-                isProblem = true;
-                throw new StartCarException("Ошибка: нет топлива");
-            }
-        } catch (StartCarException e) {
-            System.out.println(e.getMessage());
-        }
-        try {
-            if (!electric.getElectricIsOk()) {
-                isProblem = true;
-                throw new StartCarException("Ошибка: электрика не исправна");
-            }
-        } catch (StartCarException e) {
-            System.out.println(e.getMessage());
-        }
-        try {
-            if (!engine.getEngineIsOk()) {
-                isProblem = true;
-                throw new StartCarException("Ошибка: двигатель не исправен");
-            }
-        } catch (StartCarException e) {
-            System.out.println(e.getMessage());
-        }
-        if (!isProblem) {
-            System.out.println("Автомобиль движется");
+        System.out.println("Автомобиль движется");
             setIsStart(true);
+    }
+
+    public boolean checkWheels() {
+        if (wheels == null) {
+            return false;
+        } else if (wheels.length != 4) {
+            return false;
         }
+
+        for (Wheel wheel : wheels) {
+            if (!wheel.getWheelIsOk()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void stopCar() {

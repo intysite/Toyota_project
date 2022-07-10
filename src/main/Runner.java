@@ -19,7 +19,11 @@ public class Runner {
                 false,
                 makeMusicUsb(true));
 
-        camry.startCar();
+        try {
+            camry.startCar();
+        } catch (StartCarException e) {
+            System.out.println(e.getMessage());
+        }
         camry.headLightsOn();
         camry.cruiseOn();
         camry.musicUsbOn();
@@ -40,7 +44,11 @@ public class Runner {
                 true,
                 makeMiniFridge(true));
 
-        solara.startCar();
+        try {
+            solara.startCar();
+        } catch (StartCarException e) {
+            System.out.println(e.getMessage());
+        }
         solara.roofSwitch();
         solara.roofSwitch();
         solara.useMiniFridge();
@@ -61,7 +69,11 @@ public class Runner {
                 2500,
                 makeSpareWheel(WheelSizes.TWENTY, true));
 
-        hiance.startCar();
+        try {
+            hiance.startCar();
+        } catch (StartCarException e) {
+            System.out.println(e.getMessage());
+        }
         hiance.headLightsOn();
         hiance.headLightsOff();
         System.out.println();
@@ -80,7 +92,11 @@ public class Runner {
                 1500,
                 makeSocket(true));
 
-        dyna.startCar();
+        try {
+            dyna.startCar();
+        } catch (StartCarException e) {
+            System.out.println(e.getMessage());
+        }
         dyna.useSocket();
         dyna.stopCar();
     }
