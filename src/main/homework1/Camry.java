@@ -1,6 +1,6 @@
-package main;
+package main.homework1;
 
-import main.details.*;
+import main.homework1.details.*;
 
 public class Camry extends PassengerCar{
     private MusicUsb musicUsb;

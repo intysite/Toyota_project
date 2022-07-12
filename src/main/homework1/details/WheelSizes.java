@@ -1,4 +1,4 @@
-package main.details;
+package main.homework1.details;
 
 public enum WheelSizes {
     SIXTEEN(16),

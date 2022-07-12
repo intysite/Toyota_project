@@ -1,6 +1,6 @@
-package main;
+package main.homework1;
 
-import main.details.*;
+import main.homework1.details.*;
 
 public class Runner {
     public static void main(String[] args) {
@@ -137,7 +137,7 @@ public class Runner {
         return new Wheel(wheelSizes, condition);
     }
 
-    static  Socket makeSocket(boolean condition) {
+    static Socket makeSocket(boolean condition) {
         return new Socket(condition);
     }
 }
