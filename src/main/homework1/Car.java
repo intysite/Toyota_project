@@ -81,8 +81,10 @@ public abstract class Car {
     }
 
     public void stopCar() {
-        System.out.println("Автомобиль остановился");
-        setIsStart(false);
+        if (isStart) {
+            System.out.println("Автомобиль остановился");
+            setIsStart(false);
+        }
     }
     public void headLightsOn() {
         if(headLights.getHeadLightsIsOk()) {
