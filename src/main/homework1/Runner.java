@@ -1,6 +1,5 @@
 package main.homework1;
 
-import main.homework1.details.*;
 import main.homework2.*;
 
 public class Runner {
