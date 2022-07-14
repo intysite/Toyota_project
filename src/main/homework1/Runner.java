@@ -5,7 +5,6 @@ import main.homework2.*;
 
 public class Runner {
     public static void main(String[] args) {
-
         //Создаем производство
         Factory factory = new Factory(Countries.JAPAN);
         Conveyor conveyor = null;
