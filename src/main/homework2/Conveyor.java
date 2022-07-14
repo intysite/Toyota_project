@@ -41,4 +41,5 @@ public class Conveyor {
                 factory.createWheelsArray(WheelSizes.TWENTY), factory.createGasTank(), factory.createEngine(),
                 factory.createElectric(), factory.createHeadLights(), 1500, factory.createSocket());
     }
+
 }
