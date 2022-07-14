@@ -95,4 +95,8 @@ public abstract class Car {
             System.out.println("Фары выключены");
         }
     }
+
+    public void setFuel(int value) {
+        gasTank.setCountGas(value);
+    }
 }

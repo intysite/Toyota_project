@@ -1,24 +1,24 @@
 package main.homework1;
 
 import main.homework1.details.*;
+import main.homework2.*;
 
 public class Runner {
     public static void main(String[] args) {
 
-        //Собираем Camry
-        Camry camry = new Camry("black",
-                240,
-                TransmissionTypes.AUTOMATIC,
-                false,
-                35000,
-                makeWheelsArray(WheelSizes.SEVENTEEN),
-                makeGasTank(50),
-                makeEngine(true),
-                makeElectric(true),
-                makeHeadLights(true),
-                false,
-                makeMusicUsb(true));
+        //Создаем производство
+        Factory factory = new Factory(Countries.JAPAN);
+        Conveyor conveyor = null;
+        try {
+            conveyor = new Conveyor(Countries.JAPAN, factory);
+        } catch (CountryFactoryNotEqualException e) {
+            System.out.println(e.getMessage());
+        }
 
+        //Собираем и тестируем Camry
+        Camry camry = conveyor.createCamry("black", 40000);
+        //Заправка
+        camry.setFuel(50);
         try {
             camry.startCar();
         } catch (StartCarException e) {
@@ -30,19 +30,9 @@ public class Runner {
         camry.stopCar();
         System.out.println();
 
-        //Собираем Solara
-        Solara solara = new Solara("white",
-                250,
-                TransmissionTypes.ROBOTIC,
-                false,
-                40000,
-                makeWheelsArray(WheelSizes.SIXTEEN),
-                makeGasTank(60),
-                makeEngine(true),
-                makeElectric(true),
-                makeHeadLights(true),
-                true,
-                makeMiniFridge(true));
+        //Собираем и тестируем Solara
+        Solara solara = conveyor.createSolara("white", 45000);
+        solara.setFuel(60);
 
         try {
             solara.startCar();
@@ -55,19 +45,9 @@ public class Runner {
         solara.stopCar();
         System.out.println();
 
-        //Собираем Hiance
-        Hiance hiance = new Hiance("silver",
-                120,
-                TransmissionTypes.MECHANICAL,
-                false,
-                25000,
-                makeWheelsArray(WheelSizes.TWENTY),
-                makeGasTank(0),
-                makeEngine(false),
-                makeElectric(true),
-                makeHeadLights(true),
-                2500,
-                makeSpareWheel(WheelSizes.TWENTY, true));
+        //Собираем и тестируем Hiance
+        Hiance hiance = conveyor.createHiance("silver", 30000);
+        hiance.setFuel(50);
 
         try {
             hiance.startCar();
@@ -78,19 +58,9 @@ public class Runner {
         hiance.headLightsOff();
         System.out.println();
 
-        //Собираем Dyna
-        Dyna dyna = new Dyna("brown",
-                110,
-                TransmissionTypes.MECHANICAL,
-                false,
-                22000,
-                makeWheelsArray(WheelSizes.TWENTY),
-                makeGasTank(75),
-                makeEngine(true),
-                makeElectric(true),
-                makeHeadLights(true),
-                1500,
-                makeSocket(true));
+        //Собираем и тестируем Dyna
+        Dyna dyna = conveyor.createDyna("brown", 35000);
+        dyna.setFuel(45);
 
         try {
             dyna.startCar();
@@ -99,46 +69,6 @@ public class Runner {
         }
         dyna.useSocket();
         dyna.stopCar();
-    }
-
-    static Wheel[] makeWheelsArray(WheelSizes wheelSizes) {
-        Wheel[] wheels = new Wheel[4];
-        for (int i = 0; i < wheels.length; i++) {
-            wheels[i] = new Wheel(wheelSizes, true);
-        }
-        return wheels;
-    }
-
-    static GasTank makeGasTank(int countGas) {
-        return new GasTank(countGas);
-    }
-
-    static Engine makeEngine(boolean condition) {
-        return new Engine(condition);
-    }
-
-    static Electric makeElectric(boolean condition) {
-        return new Electric(condition);
-    }
-
-    static HeadLights makeHeadLights(boolean condition) {
-        return new HeadLights(condition);
-    }
-
-    static MusicUsb makeMusicUsb(boolean condition) {
-        return new MusicUsb(condition);
-    }
-
-    static MiniFridge makeMiniFridge(boolean condition) {
-        return new MiniFridge(condition);
-    }
-
-    static Wheel makeSpareWheel(WheelSizes wheelSizes, boolean condition) {
-        return new Wheel(wheelSizes, condition);
-    }
-
-    static Socket makeSocket(boolean condition) {
-        return new Socket(condition);
     }
 }
 

@@ -17,7 +17,8 @@ public class Conveyor {
     }
 
     public Camry createCamry(String color, double price) {
-        return new Camry(color, 240, TransmissionTypes.AUTOMATIC, false, price,
+        return new Camry(color,
+                240, TransmissionTypes.AUTOMATIC, false, price,
                 factory.createWheelsArray(WheelSizes.SEVENTEEN), factory.createGasTank(), factory.createEngine(),
                 factory.createElectric(), factory.createHeadLights(), false, factory.createMusicUsb());
     }
