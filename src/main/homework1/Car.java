@@ -99,5 +99,4 @@ public abstract class Car {
     public void setFuel(int value) {
         gasTank.setCountGas(value);
     }
-
 }
