@@ -17,7 +17,7 @@ public class Runner {
         //Собираем и тестируем Camry
         Camry camry = conveyor.createCamry("black", 40000);
         //Заправка
-        //camry.setFuel(50);
+        camry.setFuel(50);
         try {
             camry.startCar();
         } catch (StartCarException e) {
