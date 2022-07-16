@@ -1,4 +1,4 @@
-package main.homework1;
+package main;
 
 public class StartCarException extends Exception{
     public StartCarException(String message) {

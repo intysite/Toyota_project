@@ -1,4 +1,4 @@
-package main.homework1.details;
+package main.details;
 
 public class Engine {
     private boolean engineIsOk;

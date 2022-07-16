@@ -1,7 +1,7 @@
-package main.homework2;
+package main.factory;
 
-import main.homework1.*;
-import main.homework1.details.WheelSizes;
+import main.*;
+import main.details.WheelSizes;
 
 public class Conveyor {
     private Countries country;

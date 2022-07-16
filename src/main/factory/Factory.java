@@ -1,6 +1,6 @@
-package main.homework2;
+package main.factory;
 
-import main.homework1.details.*;
+import main.details.*;
 
 public class Factory {
     private Countries country;

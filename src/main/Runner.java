@@ -1,6 +1,6 @@
-package main.homework1;
+package main;
 
-import main.homework2.*;
+import main.factory.*;
 
 public class Runner {
     public static void main(String[] args) {

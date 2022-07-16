@@ -1,6 +1,6 @@
-package main.homework1;
+package main;
 
-import main.homework1.details.*;
+import main.details.*;
 
 public abstract class Car {
     private String color;
@@ -53,7 +53,7 @@ public abstract class Car {
             problemMessage += "Ошибка: нет топлива;\n";
             }
         if (!electric.getElectricIsOk()) {
-            problemMessage += "Ошибка: электрика не исправна; \n";
+            problemMessage += "Ошибка: электрика не исправна;\n";
             }
         if (!engine.getEngineIsOk()) {
             problemMessage += "Ошибка: двигатель не исправен;\n";

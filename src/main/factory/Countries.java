@@ -1,4 +1,4 @@
-package main.homework2;
+package main.factory;
 
 public enum Countries {
     GERMANY, JAPAN, ITALY, KOREA;

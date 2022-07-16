@@ -1,4 +1,4 @@
-package main.homework1;
+package main;
 
 public enum TransmissionTypes {
     AUTOMATIC, ROBOTIC, MECHANICAL
