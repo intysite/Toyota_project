@@ -1,6 +1,7 @@
 package main;
 
 import main.factory.*;
+import main.warehouse.*;
 
 public class Runner {
     public static void main(String[] args) {
@@ -13,6 +14,7 @@ public class Runner {
         } catch (CountryFactoryNotEqualException e) {
             System.out.println(e.getMessage());
         }
+        Warehouse warehouse = new Warehouse(Countries.JAPAN);
 
         //Собираем и тестируем Camry
         Camry camry = conveyor.createCamry("black", 40000);
