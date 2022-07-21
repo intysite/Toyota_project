@@ -14,10 +14,9 @@ public class Runner {
         } catch (CountryFactoryNotEqualException e) {
             System.out.println(e.getMessage());
         }
-        Warehouse warehouse = new Warehouse(Countries.JAPAN);
 
         //Собираем и тестируем Camry
-        Camry camry = conveyor.createCamry("black", 40000);
+        Camry camry = conveyor.createCamry(Countries.JAPAN, "black", 40000);
         //Заправка
         camry.setFuel(50);
         try {
@@ -32,9 +31,8 @@ public class Runner {
         System.out.println();
 
         //Собираем и тестируем Solara
-        Solara solara = conveyor.createSolara("white", 45000);
+        Solara solara = conveyor.createSolara(Countries.JAPAN, "white", 45000);
         solara.setFuel(60);
-
         try {
             solara.startCar();
         } catch (StartCarException e) {
@@ -47,9 +45,8 @@ public class Runner {
         System.out.println();
 
         //Собираем и тестируем Hiance
-        Hiance hiance = conveyor.createHiance("silver", 30000);
+        Hiance hiance = conveyor.createHiance(Countries.JAPAN, "silver", 30000);
         hiance.setFuel(50);
-
         try {
             hiance.startCar();
         } catch (StartCarException e) {
@@ -60,9 +57,8 @@ public class Runner {
         System.out.println();
 
         //Собираем и тестируем Dyna
-        Dyna dyna = conveyor.createDyna("brown", 35000);
+        Dyna dyna = conveyor.createDyna(Countries.JAPAN, "brown", 35000);
         dyna.setFuel(45);
-
         try {
             dyna.startCar();
         } catch (StartCarException e) {
@@ -70,6 +66,23 @@ public class Runner {
         }
         dyna.useSocket();
         dyna.stopCar();
+        System.out.println();
+
+        // Создаем склад
+        Warehouse warehouse = new Warehouse(Countries.JAPAN);
+        try {
+            //warehouse.setCamry(camry);
+            warehouse.setSolara(solara);
+            warehouse.setHiance(hiance);
+            warehouse.setDyna(dyna);
+            warehouse.getCamry();
+        } catch (WrongValueWarehouseException e) {
+            System.out.println(e.getMessage());
+        }
+        warehouse.getNumberOfHiance();
+        warehouse.getNumberOfCamry();
+        System.out.println("На складе " + warehouse.getNumberOfCars() + " шт. автомобилей.");
+
     }
 }
 

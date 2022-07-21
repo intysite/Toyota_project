@@ -1,8 +1,11 @@
 package main;
 
 import main.details.*;
+import main.factory.Countries;
 
 public abstract class Car {
+
+    private Countries country;
     private String color;
     private int maxSpeed;
     private TransmissionTypes transmissionType;
@@ -14,7 +17,8 @@ public abstract class Car {
     private Electric electric;
     private HeadLights headLights;
 
-    public Car(String color,
+    public Car(Countries country,
+               String color,
                int maxSpeed,
                TransmissionTypes transmissionType,
                boolean isStart,
@@ -24,6 +28,7 @@ public abstract class Car {
                Engine engine,
                Electric electric,
                HeadLights headLights) {
+        this.country = country;
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.transmissionType = transmissionType;

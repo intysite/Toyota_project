@@ -16,28 +16,28 @@ public class Conveyor {
         this.factory = factory;
     }
 
-    public Camry createCamry(String color, double price) {
-        return new Camry(color,
+    public Camry createCamry(Countries country, String color, double price) {
+        return new Camry(country, color,
                 240, TransmissionTypes.AUTOMATIC, false, price,
                 factory.createWheelsArray(WheelSizes.SEVENTEEN), factory.createGasTank(), factory.createEngine(),
                 factory.createElectric(), factory.createHeadLights(), false, factory.createMusicUsb());
     }
 
-    public Solara createSolara(String color, double price) {
-        return new Solara(color, 250, TransmissionTypes.ROBOTIC, false, price,
+    public Solara createSolara(Countries country, String color, double price) {
+        return new Solara(country, color, 250, TransmissionTypes.ROBOTIC, false, price,
                 factory.createWheelsArray(WheelSizes.SIXTEEN), factory.createGasTank(), factory.createEngine(),
                 factory.createElectric(), factory.createHeadLights(), true, factory.createMiniFridge());
     }
 
-    public Hiance createHiance (String color, double price) {
-        return new Hiance(color, 160, TransmissionTypes.MECHANICAL, false, price,
+    public Hiance createHiance (Countries country, String color, double price) {
+        return new Hiance(country, color, 160, TransmissionTypes.MECHANICAL, false, price,
                 factory.createWheelsArray(WheelSizes.TWENTY), factory.createGasTank(), factory.createEngine(),
                 factory.createElectric(), factory.createHeadLights(), 2500,
                 factory.createSpareWheel(WheelSizes.TWENTY));
     }
 
-    public Dyna createDyna (String color, double price) {
-        return new Dyna(color, 130, TransmissionTypes.MECHANICAL, false, price,
+    public Dyna createDyna (Countries country, String color, double price) {
+        return new Dyna(country, color, 130, TransmissionTypes.MECHANICAL, false, price,
                 factory.createWheelsArray(WheelSizes.TWENTY), factory.createGasTank(), factory.createEngine(),
                 factory.createElectric(), factory.createHeadLights(), 1500, factory.createSocket());
     }

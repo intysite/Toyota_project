@@ -1,11 +1,13 @@
 package main;
 
 import main.details.*;
+import main.factory.Countries;
 
 public abstract class PassengerCar extends Car{
     private boolean cruiseIsOn;
 
-    public PassengerCar(String color,
+    public PassengerCar(Countries country,
+                        String color,
                         int maxSpeed,
                         TransmissionTypes transmissionType,
                         boolean isStart,
@@ -16,7 +18,7 @@ public abstract class PassengerCar extends Car{
                         Electric electric,
                         HeadLights headLights,
                         boolean cruiseIsOn) {
-        super(color, maxSpeed, transmissionType, isStart, price, wheels, gasTank, engine, electric, headLights);
+        super(country, color, maxSpeed, transmissionType, isStart, price, wheels, gasTank, engine, electric, headLights);
         this.cruiseIsOn = cruiseIsOn;
     }
 

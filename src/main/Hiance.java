@@ -1,11 +1,13 @@
 package main;
 
 import main.details.*;
+import main.factory.Countries;
 
 public class Hiance extends CargoVan{
     private Wheel spareWheel;
 
-    public Hiance(String color,
+    public Hiance(Countries country,
+                  String color,
                   int maxSpeed,
                   TransmissionTypes transmissionType,
                   boolean isStart,
@@ -17,7 +19,7 @@ public class Hiance extends CargoVan{
                   HeadLights headLights,
                   int loadCapacity,
                   Wheel spareWheel) {
-        super(color, maxSpeed, transmissionType, isStart, price, wheels, gasTank, engine, electric, headLights, loadCapacity);
+        super(country, color, maxSpeed, transmissionType, isStart, price, wheels, gasTank, engine, electric, headLights, loadCapacity);
         this.spareWheel = spareWheel;
     }
 }

@@ -1,11 +1,13 @@
 package main;
 
 import main.details.*;
+import main.factory.Countries;
 
 public abstract class Cabriolet extends Car {
     private boolean roofIsUp;
 
-    public Cabriolet(String color,
+    public Cabriolet(Countries country,
+                     String color,
                      int maxSpeed,
                      TransmissionTypes transmissionType,
                      boolean isStart,
@@ -16,7 +18,7 @@ public abstract class Cabriolet extends Car {
                      Electric electric,
                      HeadLights headLights,
                      boolean roofIsUp) {
-        super(color, maxSpeed, transmissionType, isStart, price, wheels, gasTank, engine, electric, headLights);
+        super(country, color, maxSpeed, transmissionType, isStart, price, wheels, gasTank, engine, electric, headLights);
         this.roofIsUp = roofIsUp;
     }
 

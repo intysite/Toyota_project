@@ -1,12 +1,14 @@
 package main;
 
 import main.details.*;
+import main.factory.Countries;
 
 public class Dyna extends CargoVan{
 
     private Socket socket;
 
-    public Dyna(String color,
+    public Dyna(Countries country,
+                String color,
                 int maxSpeed,
                 TransmissionTypes transmissionType,
                 boolean isStart,
@@ -18,7 +20,7 @@ public class Dyna extends CargoVan{
                 HeadLights headLights,
                 int loadCapacity,
                 Socket socket) {
-        super(color, maxSpeed, transmissionType, isStart, price, wheels, gasTank, engine, electric, headLights, loadCapacity);
+        super(country, color, maxSpeed, transmissionType, isStart, price, wheels, gasTank, engine, electric, headLights, loadCapacity);
         this.socket = socket;
     }
 
