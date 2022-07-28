@@ -49,7 +49,6 @@ public class Warehouse {
     }
 
     public int getNumberOfCamry() {
-        System.out.println("Количество автомобилей Camry на складе составляет " + camries.length + " шт.");
         return camries.length;
     }
 
@@ -83,12 +82,11 @@ public class Warehouse {
     }
 
     public int getNumberOfSolara() {
-        System.out.println("Количество автомобилей Solara на складе составляет " + solaras.length + " шт.");
         return solaras.length;
     }
 
     public Hiance getHiance() throws WrongValueWarehouseException {
-        if (solaras.length > 0) {
+        if (hiances.length > 0) {
             Hiance hiance = hiances[hiances.length - 1];
             Hiance[] temp = new Hiance[hiances.length - 1];
             for (int i = 0; i < temp.length; i++) {
@@ -117,7 +115,6 @@ public class Warehouse {
     }
 
     public int getNumberOfHiance() {
-        System.out.println("Количество автомобилей Hiance на складе составляет " + hiances.length + " шт.");
         return hiances.length;
     }
 
@@ -151,7 +148,6 @@ public class Warehouse {
     }
 
     public int getNumberOfDyna() {
-        System.out.println("Количество автомобилей Dyna на складе составляет " + dynas.length + " шт.");
         return dynas.length;
     }
 }

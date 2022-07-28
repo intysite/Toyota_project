@@ -1,5 +1,15 @@
 package main.salesDepartment;
 
+import main.Car;
+
 public class Cashier {
-    public static int incomeAccount = 0;
+    private static double incomeAccount = 0;
+
+    public double getIncomeAccount() {
+        return incomeAccount;
+    }
+
+    public void payCar(Car car) {
+        incomeAccount += car.getPrice();
+    }
 }

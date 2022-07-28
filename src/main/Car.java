@@ -41,6 +41,10 @@ public abstract class Car {
         this.headLights = headLights;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
     public boolean getIsStart() {
         return this.isStart;
     }

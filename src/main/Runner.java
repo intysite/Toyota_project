@@ -86,16 +86,31 @@ public class Runner {
         warehouse.getNumberOfCamry();
         System.out.println("На складе " + warehouse.getNumberOfCars() + " шт. автомобилей.");
 
+        // Организовываем продажи
         Manager manager = new Manager(warehouse, conveyor);
         Cashier cashier = new Cashier();
         Customer alex = new Customer(10_000, "Alex");
+        Customer susie = new Customer(12_000, "Susie");
+        Customer tilda = new Customer(15_000, "Tilda");
+        Customer mia = new Customer(22_000, "Mia");
+        Customer max = new Customer(11_000, "Max");
+        Customer helga = new Customer(13_000, "Helga");
+        Customer otto = new Customer(8_000, "Otto");
+        Customer michael = new Customer(30_000, "Michael");
         try {
-            Camry camry1 = manager.sellCar(alex);
-            System.out.println(camry1);
+            cashier.payCar(manager.sellCar(alex));
+            cashier.payCar(manager.sellCar(susie));
+            cashier.payCar(manager.sellCar(tilda));
+            cashier.payCar(manager.sellCar(mia));
+            cashier.payCar(manager.sellCar(max));
+            cashier.payCar(manager.sellCar(helga));
+            cashier.payCar(manager.sellCar(otto));
+            cashier.payCar(manager.sellCar(michael));
         } catch (NotEnoughMoneyException e) {
             System.out.println(e.getMessage());
         }
         System.out.println("На складе " + warehouse.getNumberOfCars() + " шт. автомобилей.");
+        System.out.println("Сумма средств от продажи автомобилей составляет " + cashier.getIncomeAccount());
     }
 }
 
