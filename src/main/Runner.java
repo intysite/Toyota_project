@@ -7,6 +7,8 @@ import main.salesDepartment.Manager;
 import main.salesDepartment.NotEnoughMoneyException;
 import main.warehouse.*;
 
+import java.io.IOException;
+
 public class Runner {
     public static void main(String[] args) {
 
@@ -111,6 +113,11 @@ public class Runner {
         }
         System.out.println("На складе " + warehouse.getNumberOfCars() + " шт. автомобилей.");
         System.out.println("Сумма средств от продажи автомобилей составляет " + cashier.getIncomeAccount());
+        try {
+            manager.generateReport();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

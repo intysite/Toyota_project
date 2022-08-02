@@ -5,7 +5,7 @@ import main.Car;
 
 public class Report {
     private String nameOfManager;
-    private Car[] cars;
+    private Car[] cars = new Car[0];
 
     public Report(String nameOfManager) {
         this.nameOfManager = nameOfManager;

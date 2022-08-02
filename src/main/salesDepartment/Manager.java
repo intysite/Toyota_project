@@ -4,6 +4,9 @@ import main.*;
 import main.factory.*;
 import main.warehouse.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Manager {
     private String name;
     private Warehouse warehouse;
@@ -60,5 +63,28 @@ public class Manager {
                 return (T) camry;
             }
         }
+    }
+
+    public void generateReport() throws IOException {
+        FileWriter fileWriter = new FileWriter("D:\\Java_projects\\Toyota_project\\data\\report" + name + ".txt");
+        fileWriter.write("Менеджер " + name + "\n");
+        Car[] cars = report.getCars();
+        for (Car car : cars) {
+            double selfPrice = 0;
+            if (car instanceof Dyna) {
+                selfPrice = Catalog.CAMRY.getSelfPrice();
+            } else if (car instanceof Hiance) {
+                selfPrice = Catalog.HIANCE.getSelfPrice();
+            } else if (car instanceof Solara) {
+                selfPrice = Catalog.SOLARA.getSelfPrice();
+            } else if (car instanceof Camry) {
+                selfPrice = Catalog.CAMRY.getSelfPrice();
+            }
+            String reporting = car.getClass().getSimpleName() + " - "
+                    + String.valueOf(car.getPrice()) + " - "
+                    + String.valueOf(selfPrice);
+            fileWriter.write(reporting + "\n");
+        }
+        fileWriter.close();
     }
 }
