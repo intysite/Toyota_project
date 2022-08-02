@@ -87,7 +87,7 @@ public class Runner {
         System.out.println("На складе " + warehouse.getNumberOfCars() + " шт. автомобилей.");
 
         // Организовываем продажи
-        Manager manager = new Manager(warehouse, conveyor);
+        Manager manager = new Manager("Andrew", warehouse, conveyor);
         Cashier cashier = new Cashier();
         Customer alex = new Customer(10_000, "Alex");
         Customer susie = new Customer(12_000, "Susie");
