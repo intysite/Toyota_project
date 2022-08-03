@@ -1,10 +1,7 @@
 package main;
 
 import main.factory.*;
-import main.salesDepartment.Cashier;
-import main.salesDepartment.Customer;
-import main.salesDepartment.Manager;
-import main.salesDepartment.NotEnoughMoneyException;
+import main.salesDepartment.*;
 import main.warehouse.*;
 
 import java.io.IOException;
@@ -91,30 +88,30 @@ public class Runner {
         // Организовываем продажи
         Manager manager = new Manager("Andrew", warehouse, conveyor);
         Cashier cashier = new Cashier();
-        Customer alex = new Customer(10_000, "Alex");
-        Customer susie = new Customer(12_000, "Susie");
-        Customer tilda = new Customer(15_000, "Tilda");
-        Customer mia = new Customer(22_000, "Mia");
-        Customer max = new Customer(11_000, "Max");
-        Customer helga = new Customer(13_000, "Helga");
-        Customer otto = new Customer(8_000, "Otto");
-        Customer michael = new Customer(30_000, "Michael");
-        try {
-            cashier.payCar(manager.sellCar(alex));
-            cashier.payCar(manager.sellCar(susie));
-            cashier.payCar(manager.sellCar(tilda));
-            cashier.payCar(manager.sellCar(mia));
-            cashier.payCar(manager.sellCar(max));
-            cashier.payCar(manager.sellCar(helga));
-            cashier.payCar(manager.sellCar(otto));
-            cashier.payCar(manager.sellCar(michael));
-        } catch (NotEnoughMoneyException e) {
-            System.out.println(e.getMessage());
+        Customer[] customers = {new Customer(10_000, "Alex"),
+         new Customer(12_000, "Susie"),
+        new Customer(15_000, "Tilda"),
+        new Customer(22_000, "Mia"),
+        new Customer(11_000, "Max"),
+        new Customer(13_000, "Helga"),
+        new Customer(8_000, "Otto"),
+        new Customer(30_000, "Michael"),};
+
+        for (Customer customer : customers) {
+            try {
+                cashier.payCar(manager.sellCar(customer));
+            } catch (NotEnoughMoneyException e) {
+                    System.out.println(e.getMessage());
+                }
         }
+
         System.out.println("На складе " + warehouse.getNumberOfCars() + " шт. автомобилей.");
         System.out.println("Сумма средств от продажи автомобилей составляет " + cashier.getIncomeAccount());
+
+        Boss boss = new Boss();
         try {
             manager.generateReport();
+            boss.generateGlobalReport(new Manager[]{manager});
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -12,6 +12,8 @@ public class Manager {
     private Warehouse warehouse;
     private Conveyor conveyor;
     private Report report = new Report(name);
+    private double priceSum = 0;
+    private double selfPriceSum = 0;
 
     public Manager(String name, Warehouse warehouse, Conveyor conveyor) {
         this.name = name;
@@ -72,7 +74,7 @@ public class Manager {
         for (Car car : cars) {
             double selfPrice = 0;
             if (car instanceof Dyna) {
-                selfPrice = Catalog.CAMRY.getSelfPrice();
+                selfPrice = Catalog.DYNA.getSelfPrice();
             } else if (car instanceof Hiance) {
                 selfPrice = Catalog.HIANCE.getSelfPrice();
             } else if (car instanceof Solara) {
@@ -84,7 +86,21 @@ public class Manager {
                     + String.valueOf(car.getPrice()) + " - "
                     + String.valueOf(selfPrice);
             fileWriter.write(reporting + "\n");
+            priceSum += car.getPrice();
+            selfPriceSum += selfPrice;
         }
+        String reporting = "Итог: доходы - " + String.valueOf(priceSum) +
+                            " расходы - " + String.valueOf(selfPriceSum) +
+                            " прибыль - " + String.valueOf(priceSum - selfPriceSum);
+        fileWriter.write(reporting + "\n");
         fileWriter.close();
+    }
+
+    public double getPriceSum() {
+        return priceSum;
+    }
+
+    public double getSelfPriceSum() {
+        return selfPriceSum;
     }
 }
